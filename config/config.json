@@ -1,0 +1,10 @@
+{
+  "development": {
+    "username": "andres",
+    "password": "qwerty1234",
+    "database": "DB_PALOALTO_V1",
+    "host": "204.2.195.89",
+    "port":"31400",
+    "dialect": "postgres"
+  }
+}
