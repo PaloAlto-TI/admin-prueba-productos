@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       type: DataTypes.STRING(32),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('generate_object_id'),
       primaryKey: true
     },
     fk_locacion_id: {
@@ -32,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: ""
     },
-    atributoss_web_js: {
+    atributos_web_js: {
       type: DataTypes.JSONB,
       allowNull: true
     },

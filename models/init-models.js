@@ -40,10 +40,16 @@ function initModels(sequelize) {
   EMPRESA.hasMany(EMPLEADO_EMPRESA, { as: "EMPLEADO_EMPRESAs", foreignKey: "fk_empresa_id"});
   EXISTENCIAS.belongsTo(EMPRESA, { as: "fk_empresa", foreignKey: "fk_empresa_id"});
   EMPRESA.hasMany(EXISTENCIAS, { as: "EXISTENCIA", foreignKey: "fk_empresa_id"});
+  LINEA.belongsTo(EMPRESA, { as: "fk_empresa", foreignKey: "fk_empresa_id"});
+  EMPRESA.hasMany(LINEA, { as: "LINEAs", foreignKey: "fk_empresa_id"});
   LOCAL.belongsTo(EMPRESA, { as: "fk_empresa", foreignKey: "fk_empresa_id"});
   EMPRESA.hasMany(LOCAL, { as: "LOCALs", foreignKey: "fk_empresa_id"});
+  MARCA.belongsTo(EMPRESA, { as: "fk_empresa_EMPRESA", foreignKey: "fk_empresa"});
+  EMPRESA.hasMany(MARCA, { as: "MARCAs", foreignKey: "fk_empresa"});
   MEDIDA.belongsTo(EMPRESA, { as: "fk_empresa", foreignKey: "fk_empresa_id"});
   EMPRESA.hasMany(MEDIDA, { as: "MEDIDAs", foreignKey: "fk_empresa_id"});
+  PROVEEDOR.belongsTo(EMPRESA, { as: "fk_empresa", foreignKey: "fk_empresa_id"});
+  EMPRESA.hasMany(PROVEEDOR, { as: "PROVEEDORs", foreignKey: "fk_empresa_id"});
   PRODUCTO.belongsTo(GRUPO, { as: "fk_grupo", foreignKey: "fk_grupo_id"});
   GRUPO.hasMany(PRODUCTO, { as: "PRODUCTOs", foreignKey: "fk_grupo_id"});
   GRUPO.belongsTo(LINEA, { as: "fk_linea", foreignKey: "fk_linea_id"});

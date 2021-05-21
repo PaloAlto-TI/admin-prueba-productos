@@ -15,6 +15,8 @@ app.use(express.json());
 app.use(morgan('dev'))
 app.use("/admin", adminRouter);
 app.use(require("./routes/projects"));
+app.use(require("./routes/csv"));
+
 
 // app.use(cookieParser());
 // app.use(session({

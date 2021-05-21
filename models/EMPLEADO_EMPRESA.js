@@ -4,6 +4,7 @@ module.exports = function(sequelize, DataTypes) {
     id: {
       type: DataTypes.STRING(32),
       allowNull: false,
+      defaultValue: Sequelize.Sequelize.fn('generate_object_id'),
       primaryKey: true
     },
     fk_empresa_id: {
