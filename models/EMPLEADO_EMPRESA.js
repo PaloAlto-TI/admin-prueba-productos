@@ -13,8 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'EMPRESA',
         key: 'id'
-      },
-      unique: "EMPLEADO_EMPRESA_fk_empresa_id_fk_persona_id_key"
+      }
     },
     fk_persona_id: {
       type: DataTypes.STRING(32),
@@ -22,8 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       references: {
         model: 'PERSONA',
         key: 'id'
-      },
-      unique: "EMPLEADO_EMPRESA_fk_empresa_id_fk_persona_id_key"
+      }
     },
     codigo_empleado: {
       type: DataTypes.STRING(32),
@@ -63,14 +61,6 @@ module.exports = function(sequelize, DataTypes) {
     schema: 'public',
     timestamps: false,
     indexes: [
-      {
-        name: "EMPLEADO_EMPRESA_fk_empresa_id_fk_persona_id_key",
-        unique: true,
-        fields: [
-          { name: "fk_empresa_id" },
-          { name: "fk_persona_id" },
-        ]
-      },
       {
         name: "EMPLEADO_EMPRESA_pkey",
         unique: true,
