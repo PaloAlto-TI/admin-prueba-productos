@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('EXISTENCIAS', {
+  return sequelize.define('existencias', {
     id: {
       type: DataTypes.STRING(32),
       allowNull: false,
@@ -11,17 +11,19 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'PRODUCTO',
+        model: 'producto',
         key: 'id'
-      }
+      },
+      unique: "EXISTENCIAS_fk_producto_id_fk_empresa_id_key"
     },
     fk_empresa_id: {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'EMPRESA',
+        model: 'empresa',
         key: 'id'
-      }
+      },
+      unique: "EXISTENCIAS_fk_producto_id_fk_empresa_id_key"
     },
     stock_empresa: {
       type: DataTypes.DECIMAL,
@@ -45,10 +47,18 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'EXISTENCIAS',
+    tableName: 'existencias',
     schema: 'public',
     timestamps: false,
     indexes: [
+      {
+        name: "EXISTENCIAS_fk_producto_id_fk_empresa_id_key",
+        unique: true,
+        fields: [
+          { name: "fk_producto_id" },
+          { name: "fk_empresa_id" },
+        ]
+      },
       {
         name: "EXISTENCIAS_pkey",
         unique: true,

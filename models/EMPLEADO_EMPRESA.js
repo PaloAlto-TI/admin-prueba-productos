@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('EMPLEADO_EMPRESA', {
+  return sequelize.define('empleado_empresa', {
     id: {
       type: DataTypes.STRING(32),
       allowNull: false,
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'EMPRESA',
+        model: 'empresa',
         key: 'id'
       }
     },
@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'PERSONA',
+        model: 'persona',
         key: 'id'
       }
     },
@@ -57,7 +57,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'EMPLEADO_EMPRESA',
+    tableName: 'empleado_empresa',
     schema: 'public',
     timestamps: false,
     indexes: [

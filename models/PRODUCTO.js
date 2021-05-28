@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('PRODUCTO', {
+  return sequelize.define('producto', {
     id: {
       type: DataTypes.STRING(32),
       allowNull: false,
@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'PROVEEDOR',
+        model: 'proveedor',
         key: 'id'
       }
     },
@@ -19,7 +19,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'MARCA',
+        model: 'marca',
         key: 'id'
       }
     },
@@ -27,7 +27,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'LINEA',
+        model: 'linea',
         key: 'id'
       }
     },
@@ -35,7 +35,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'GRUPO',
+        model: 'grupo',
         key: 'id'
       }
     },
@@ -43,7 +43,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'MEDIDA',
+        model: 'medida',
         key: 'id'
       }
     },
@@ -51,7 +51,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(32),
       allowNull: false,
       references: {
-        model: 'MEDIDA',
+        model: 'medida',
         key: 'id'
       }
     },
@@ -149,10 +149,14 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: Sequelize.Sequelize.fn('now')
+    },
+    tipo_inventario: {
+      type: DataTypes.STRING(64),
+      allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'PRODUCTO',
+    tableName: 'producto',
     schema: 'public',
     timestamps: false,
     indexes: [

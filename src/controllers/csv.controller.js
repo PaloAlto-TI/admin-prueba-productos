@@ -24,10 +24,7 @@ csvCTRL.bulkInsert = async(req, res) =>{
           connectionString: 'postgresql://andres:qwerty1234@204.2.195.89:31400/DB_PALOALTO_V1'
         });
     
-        const query =
-        `INSERT INTO public."GLOSARIO"(
-            nombre, descripcion)
-            VALUES ($1, $2)`;
+        const query = "INSERT INTO public.glosario(nombre, descripcion) VALUES ($1, $2)";
     
         pool.connect((err, client, done) => {
           if (err) throw err;
