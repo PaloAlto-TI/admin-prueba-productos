@@ -57,6 +57,7 @@ module.exports = function(sequelize, DataTypes) {
     sequelize,
     tableName: 'persona',
     schema: 'public',
+    hasTrigger: true,
     timestamps: false,
     indexes: [
       {

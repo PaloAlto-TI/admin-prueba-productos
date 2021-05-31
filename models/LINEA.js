@@ -47,6 +47,7 @@ module.exports = function(sequelize, DataTypes) {
     sequelize,
     tableName: 'linea',
     schema: 'public',
+    hasTrigger: true,
     timestamps: false,
     indexes: [
       {

@@ -158,6 +158,7 @@ module.exports = function(sequelize, DataTypes) {
     sequelize,
     tableName: 'producto',
     schema: 'public',
+    hasTrigger: true,
     timestamps: false,
     indexes: [
       {
